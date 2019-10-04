@@ -1,0 +1,489 @@
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    color: #a7a9ab;
+}
+
+a{
+	text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+p {
+    letter-spacing: 1px;
+    padding: 8px 0;
+}
+
+ul{list-style-type: none;} 
+
+.colorContainer {
+    background-color: white;
+    position: fixed;
+    z-index: 2;
+    width: 17%;
+    min-width: 220px;
+    height: 100%;
+}
+
+.sideContainer {
+    width: 17%;
+    min-width: 220px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    border-right: 1px solid #a7a9ab;    
+    z-index: 3;
+    text-align: center;
+    color: black;
+    background-color: rgba(0, 0, 0, .010); 
+}
+
+.sideContainer .navbar {
+    padding: 50px 40px;
+}
+
+a.logo {
+    display: block;
+}
+
+a.logo img {
+    width: 6vw;
+    min-width: 140px;
+    padding: 20px 0; 
+    min-width: 130px;
+}
+
+.navbar a.nav__underline {
+    display: inline-block;
+}
+
+.navbar a.nav__selected {
+    text-decoration: line-through;
+}
+
+.navbar a.nav__underline::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width .3s;
+}
+
+.navbar a.nav__underline:hover::after {
+    width: 100%;
+}
+
+.navbar ul {
+    padding-bottom: 5px;
+}
+
+.navbar ul li {
+    padding: 8px 0; 
+}
+
+.navbar ul li a {
+    -webkit-transition: margin-left .5s; /* For Safari 3.1 to 6.0 */
+    transition: margin-left .5s;
+    letter-spacing: 1.8px;
+}
+
+.navbar ul li a:hover {
+    margin-left: 10px;
+}
+
+.navbar li.nav__last { margin-bottom: 50px; }
+
+li.nav__icon img { 
+    width: 15px; 
+}
+
+.mainContainer {
+    width: 83%;
+    position: relative;
+    left: 17%;
+    display: none;
+}
+
+.modalContainer {
+    display: inline-block;
+}
+
+.mainContainer .imgContainer {
+    display: inline-block;
+    text-align: center;
+    margin: 3vw 4vw 3vw 4vw;
+}
+
+.imgContainer.imgContainer--empty {
+    width: 90%;
+}
+
+.imgContainer .imgBox {
+    margin: 8px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 15vw;
+    height: 15vw;
+    background-color: #a7a9ab;
+    min-width: 220px;
+    min-height: 220px;
+    overflow: hidden;
+    transition: transform .2s, .3s; /* Animation */
+    cursor: pointer;
+}
+
+.imgContainer .imgBox:hover{
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+.imgBox .highlight {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: .3s;
+    color: transparent;
+    letter-spacing: 1.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.highlight span {
+    padding: 15px;
+}
+
+.imgBox .highlight:hover { 
+    background-color: rgba(255, 255, 255, .45); 
+    color: black;
+}
+
+.imgBox img{
+    height: 100%;
+    width: auto;
+    position: relative;
+    margin: auto;
+    left: -30px;    
+}   
+
+.imgContainer .imgTextBox {
+    width: 75%;
+    margin: auto;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    text-align: left;
+}
+
+.imgContainer .imgTextBox.imgTextBox--bottom {
+    margin-bottom: 0;
+}
+
+.imgTextBox h1 {
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #a7a9ab;
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.imgTextBox h5 {
+    font-weight: bold;
+    border-top: 1px solid #a7a9ab;
+    padding-top: 10px;
+    margin-top: 30px;
+    color: black;
+}
+
+.navPaneContainer {
+    bottom: 0;
+    position: fixed;
+    right: 0;
+    width: 40px;
+    height: 147px;
+    z-index: 4;
+    display: none;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    color: #707070;
+    text-align: center;
+}
+
+.navPaneContainer ul li{ padding: 6px; }
+
+.navPaneContainer .nav__arrow { 
+    border-bottom: 1px solid black; 
+    cursor: pointer;
+}
+
+.navPaneContainer .nav__arrow.nav__arrow--last {
+    border-top: 1px solid black;
+    border-bottom: 0;
+    cursor: pointer;
+}
+
+
+.form-output {
+    width: 500px;
+    padding: 30px 10px;
+    border-radius: 4px;
+    border-bottom: none;
+    background: white;
+    text-align: center;
+    position: relative;
+}
+
+#results {
+    display: none;
+}
+
+.form-output label.output-title {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.form-output label.output-title.title {
+    font-size: 20px;
+    padding-bottom: 6px;
+    margin: 0 80px 25px 80px;
+    border-bottom: 1px solid #aaa;
+    color: #68b12f;
+}
+
+.form-output label.output-header {
+    color: #cccccc;
+}
+
+.form-output .imgClose {
+    color: #68b12f;
+    position: relative;
+    margin: 0;
+}
+
+.contact-container {
+    display: flex;
+    letter-spacing: 1.8px;
+    font-size: 14px;
+}
+
+.contact-col {
+    width: 50%;
+}
+
+.contact-map {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#googleMap {
+    width: 22vw;
+    height: 22vw;
+    min-width: 350px;
+    min-height: 350px;
+    border-radius: 10px;
+}
+
+.contact-map .map-output {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-output label.map-header {
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #68b12f;
+} 
+
+
+.contact-form label, .form-output label, .map-output label {
+    margin-bottom: 7px;
+    display: block;
+}
+
+.contact-form label.required {
+    text-align: right;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.contact-form label.input-message {
+    display: inline-block;
+    color: red;
+    display: none;
+}
+
+.contact-form label span, dfn{
+    color: red;
+    font-size: 12px;
+}
+
+.contact-form .form__input {
+    padding: 5px 10px;
+}
+
+.contact-form .form__input input.input-error {
+    border-color: #ff9999;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.contact-form .form__input:hover {
+    background-color: #FFFFE0;
+    border-radius: 5px;
+}
+
+.contact-form input, select {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    width: 98%;
+    padding: 10px 10px;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background: transparent;
+    box-sizing: border-box;
+    letter-spacing: 1.2px;
+}
+
+.contact-form input.input__comments {
+    height: 100px;
+}
+
+.contact-form input::placeholder {
+    color: #d6d6db;
+}
+
+.contact-form button {
+    background-color: #68b12f;
+    color: #FFF;
+    font-weight: bold;
+    padding: 11px 20px;
+    border-radius: 3px;
+    border: 1px solid #68b12f;
+    opacity: .9;
+    letter-spacing: 2px;
+    margin: 0 10px;
+}
+
+.contact-form button:hover {
+    cursor: pointer;
+    background-color: #5ea12b;
+    border: 1px solid #5ea12b;
+}
+
+option {
+    color: #a7a9ab;
+}
+
+.split {
+    display: inline-block;
+}
+
+.split p {
+    width: 45%;
+    display: inline-block;
+    position: relative;
+}
+
+.split .about--img img {
+    width: 45%;
+    height: auto;
+    display: inline-block;
+    position: relative;
+}
+
+.scrollToTop {
+	width: 37.5px;
+	height: 37.5px;
+	position: fixed;
+	bottom: 0%;
+	right: 40px;
+	z-index: 2;
+	cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: none;
+}
+
+.scrollToTop:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.scrollToTop span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    letter-spacing: 1.25px;
+    font-size: 12.5px;
+}
+
+
+.imgModal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .67);
+    top: 0;
+    left: 0;
+    overflow: auto;
+    z-index: 5;
+    text-align: center;
+    display: none;
+}
+
+.imgModal .modalAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modalAlign .imgContent {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    overflow: hidden;
+}
+
+.imgContent img {
+    height: 100%;
+    width: auto;
+    left: -30px;
+}
+
+.imgClose {
+    position: absolute;
+    color: white;
+    font-size: 25px;
+    margin: 20px 40px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    top: 0;
+    right: 0;
+}
+
+
+

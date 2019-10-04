@@ -1,0 +1,146 @@
+/* Change the css depending on screen size (responsive) */
+
+/* We do height first, because this is an attribute that is less likely to change (so doesn't need to be overriden) */
+@media (max-height: 800px) {
+    .modalAlign .imgContent {
+        width: 650px;
+        height: 650px;
+    }
+}
+
+/* Width */
+@media (max-width: 1250px) {
+    .sideContainer, .colorContainer {
+        width: 100%;
+        height: 160px;
+        top: 0;
+        left: auto;
+        border-right: none;
+        border-bottom: 1px solid #a7a9ab;
+    }
+
+    .sideContainer .navbar {
+        padding: 0 40px;
+    }
+
+    .navbar ul li {
+        display: inline;
+        padding: 0 8px;
+    }
+
+    .navbar ul li a:hover { margin-left: 0; }
+
+    a.logo img { padding: 20px 0 12px 0; }
+    
+     .mainContainer {
+         width: 100%;
+         left: auto;
+         top: 160px;
+     }
+
+    .contact-container {
+        display: block;
+    }
+
+    .contact-col {
+        width: 100%;
+    }
+
+    .contact-form {
+        width: 80%;
+        margin: auto;
+    }
+    
+    .contact-map {
+        margin: 60px 0;
+        display: block;
+    }
+}
+
+@media (max-width: 900px) {
+    .modalAlign .imgContent {
+        width: 650px;
+        height: 650px;
+    }
+}
+
+@media (max-width: 702px) {
+    .sideContainer, .colorContainer {
+        height: 180px;
+    }
+
+    .mainContainer {
+        top: 180px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form input, select {
+        width: 90%;
+    }
+
+    .modalAlign .imgContent {
+        width: 500px;
+        height: 500px;
+    }
+
+    .form-output {
+        width: 400px;
+    }
+}
+
+@media (max-width: 550px) {
+    .modalAlign .imgContent {
+        width: 400px;
+        height: 400px;
+    }
+
+    #googleMap {
+        min-width: 250px;
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 450px) {
+    .sideContainer, .colorContainer{
+        position: relative;
+        height: auto;
+    }
+
+    .mainContainer {
+        position: static;
+    }
+
+    .navbar li.nav__icon {
+        display: none;
+    }
+
+    .navPaneContainer {
+        display: block;
+    }  
+
+    .scrollToTop {
+        display: none !important;
+    }
+
+    .modalAlign .imgContent {
+        width: 300px;
+        height: 300px;
+    }
+
+    .form-output {
+        width: 280px;
+    }
+
+    .form-output label.output-title {
+        font-size: 15px;
+    }
+
+    .form-output label.output-title.title {
+        font-size: 17px;
+    }
+}
+
+

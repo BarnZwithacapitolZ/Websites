@@ -1,0 +1,36 @@
+/* Make the website printable */
+@media print { 
+    * {
+        background: transparent;
+        color: black;
+        box-shadow: none;
+        text-shadow: none;
+        transition: none;
+    }
+
+    .imgContainer .imgBox:hover {
+        transform: scale(1);
+    }
+
+    .sideContainer, .colorContainer{
+        position: relative;
+        height: auto;
+        border-bottom: none;
+    }
+    
+    .navbar ul, .scrollToTop, .imgBox .highlight, .imgModal {
+        display: none !important;
+    }
+
+    .mainContainer {
+        position: static;
+    }
+
+    .mainContainer .imgContainer {
+        margin-top: 0;
+    }
+
+    .imgTextBox h1 {
+        text-align: center;
+    }
+}

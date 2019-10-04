@@ -1,0 +1,352 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+@keyframes MoveUpDown {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes fadeIn{
+	from {opacity: 0;}
+	to {opacity: 1;}	
+}
+@keyframes bottomLeft{
+    from {left: 0;}
+	to {left: 10%;}
+}
+
+p{
+	font-size: 4vw;	
+	transition: .5s;
+}
+
+ul{	list-style-type: none; }
+
+.titleContainer{
+	min-width: 100%;
+	height: 100%;
+	background-image: url("../img/background.jpg");
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	position: relative;
+}
+
+.titleContainer.healthTitle {
+	background-image: url("../img/healthy food.jpeg");
+	height: 50%;	
+}
+
+.titleContainer.drinkTitle {
+	background-image: url("../img/alcohol.jpg");
+	height: 50%;	
+}
+
+.titleContainer.physicalTitle{
+	background-image: url("../img/running.jpeg");
+	height: 50%;	
+}
+
+.titleContainer.lifestyleTitle{
+	background-image: url("../img/happy.jpeg");
+	height: 50%;
+}
+
+.titleContainer .colorLayer{
+	background-color: rgba(153, 255, 153, .6);
+	height: 100%;
+}
+
+.header{
+	text-align: right;
+	padding: 20px;
+}
+
+ul.dropdown-menu.dropdown-menu-right{
+	background-color: black;
+}
+
+.dropdown-menu>li>a{
+	color: white;
+	font-size: 25px;
+	display: inline-block;
+}
+
+/* Line through page (that user is on) within dropdown menu */
+.dropdown-menu>li>a.line{
+	color: white;
+	font-size: 25px;
+	display: inline-block;
+	text-decoration: line-through;
+}
+
+/* Remove existing styles */
+.dropdown-menu>li>a:hover{
+	background-color: black;
+	color: white;
+}
+
+/* Allow transition on border bottom */
+.dropdown-menu>li>a::after{
+	content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width .3s;
+}
+
+.dropdown-menu>li>a:hover::after{
+	width: 100%;
+}
+
+.title{
+	width: 100%;
+	top: 40%;
+	position: fixed;	
+}
+
+.banner{
+	width: 100%;
+	position: fixed;
+	top: 20%;
+	text-align: center;
+}
+
+.intro-line-text{
+	margin: 0;	
+	display: block;
+	font-weight: 300;
+	transition: .5s;
+	opacity: 1;
+	font-size: 6vw;
+	animation-name: fadeIn;
+	animation-duration: 3s;
+}
+
+.intro-line-text h1{
+	margin: 0;
+	font-size: 1.1em;
+	position: relative;	
+}
+
+.intro-line-text h1.leftRight{
+	left: 10%;
+	animation-name: bottomLeft;
+	animation-duration: 1.5s;
+}
+
+.intro-line-text h1.green{ color: #44f244; }
+.intro-line-text h1.title{ padding-bottom: 8vw; }
+
+.intro-line-text h1.formTitle{
+	font-size: 8vw;
+	margin-left: -10%;
+	margin-top: 40%;
+	color: #333333;
+}
+
+.intro-line-text h1.small{
+	font-size: 4vw;
+	padding-bottom: 2vw;
+}
+
+.intro-line-text h1.greenFact{
+	color: #44f244;
+	margin: 0;
+}
+
+.footer{
+	position: absolute;
+	bottom: 5%;
+	left: 48%;
+	transition: .5s;
+}
+
+.mouse{
+	animation: MoveUpDown 1s linear infinite;
+	position: relative;	
+	bottom: 0;
+}
+
+.info{
+	width: 100%;
+	background-color: white;	
+	position: relative;
+	color: black;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.info.form{ display: flex; }
+.info.form p{ font-size: 3vw; }
+
+.info.light-grey{
+	background-color: #f2f2f2;
+}
+
+.info.image{
+	background-image: url("../img/healthy food.jpeg");
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+}
+
+.info.image.drink{
+	background-image: url("../img/alcohol.jpg");
+}
+
+.info.image.physical{
+	background-image: url("../img/running.jpeg");
+}
+
+.main-info{
+	text-align: left;
+	position: relative;
+	padding: 10vw 30vw 10vw 10vw;
+}
+
+.main-info.half{
+	width: 50%;
+	float: left;
+	padding-right: 10vw;
+}
+
+.main-info.wide{
+	padding-left: 8vw;
+	padding-right: 5vw;
+}
+
+.main-info.grey{
+	background-color: #e0e0e0;
+}
+
+.main-info.right{
+	text-align: right;
+	padding: 10vw 10vw 10vw 30vw;
+}
+
+.main-info.green{
+	background-color: rgba(153, 255, 153, .8);
+}
+
+.main-info.list{
+	padding-top: 0.5vw;
+	padding-bottom: 0.5vw;
+}
+
+.main-info.list:first-child{
+	padding-top: 10vw;
+}
+
+.main-info.list:last-child{
+	padding-bottom: 10vw;
+}
+
+.main-info.banner{
+	padding-top: 4vw;
+	padding-bottom: 4vw;
+}
+
+.info .textImage{ position: absolute; }
+
+.info .textImage.right{
+	right: 10vw;
+}
+
+.info .textImage.left{
+	left: 10vw;
+}
+
+.info .textImage.formError{
+	right: 5%;
+	top: 25%;
+}
+
+.info .textImage.redArrow{
+	top: -50%;
+	left: 5%;
+}
+
+.allFacts{
+	width: 100%;
+	background-color: white;
+	position: relative;	
+	text-align: center;
+}
+
+.fact{
+	margin: 0;
+	margin-top: 2vw;
+	padding: 2vw 5vw 2vw 5vw;
+	width: 48%;
+	display: inline-block;
+}
+
+.sectionTitle{
+	position: absolute;
+	left: 2%;
+	z-index: 1;
+	width: 98%;
+	margin-top: -4.8%;
+}
+
+.formElement{
+	margin-bottom: 5%;
+	font-size: 2vw;
+	padding: 0.5vw 1vw;
+	outline: none;
+	border: none;
+	border-radius: 0.2vw;
+	color: #bfbfbf;	
+}
+
+.formElement.no-bottom{	margin-bottom: 0; }
+.formInput{	width: 100%; }
+.formSelect{ width: 85%; }
+
+.formAdd{
+	background-color: #44f244;
+	padding: 0.28vw 1vw;
+	color: black;
+}
+
+.formAdd:hover{
+	background-color: #bfbfbf;
+	transition: .5s;
+}
+
+.error{
+	left: 20%;
+	position: absolute;
+	width: 60%;
+	background-color: #f44336;
+	color: white;
+	padding: 1vw 1.2vw;
+	text-align: center;
+	font-size: 1.2vw;
+}
+
+.error.green{
+	background-color: #44f244;
+	color: black;
+}
+.end{ color: black; }
+.end:hover{
+	color: black;
+	text-decoration: line-through;
+	transition: .5s;
+}

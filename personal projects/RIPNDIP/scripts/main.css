@@ -1,0 +1,551 @@
+@font-face {
+    font-family: 'mainFont';
+    src: url('../fonts/3Dumb.eot?#iefix') format('embedded-opentype'), 
+         url('../fonts/3Dumb.ttf')  format('truetype');    
+}
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+/* Remove all scrollbars */
+/* width */
+::-webkit-scrollbar {
+    width: 6.5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.hideScrollbar ::-webkit-scrollbar{
+	display: none;
+}
+
+html, body{
+	height: 100%;	
+	font-family: 'helvetica';
+	text-transform: uppercase;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+ul{list-style-type: none;}
+
+.container{
+	width: 100%;
+	height: 100%;
+	background: white;
+	/*position: relative;*/
+	color: black;	
+}
+
+.fixedContainer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	position: fixed;
+	z-index: 2;
+}
+
+.slider-wrapper {
+	width: 70%;
+	overflow: hidden;
+	z-index: 1;
+	display: block;
+}
+
+.inner-wrapper {
+	width: 300%;
+	position: relative;
+	left: -100%;
+}
+
+.slide {
+	width: calc(100% / 3);
+	float: left;
+	text-align: center;
+	margin-top: 3%;
+}
+
+.slide span{
+	font-family: 'mainFont';
+	font-size: 7.5vw;
+	font-weight: bold;
+	letter-spacing: 2px;
+	transition: .5s;
+}
+
+.button{
+	margin-top: 5%;
+	padding: 1vw;
+}
+.button a{
+	background-color: black;
+	padding: 1vw;
+	color: white;
+	font-size: 1vw;
+	letter-spacing: 4px;
+}
+.button a:hover, .footer li a:hover, .titles:hover, .navMenu li a:hover, .openCart:hover{text-decoration: line-through;}
+
+.arrow{
+	width: 7vw;
+	height: auto;
+	position: fixed;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.arrow.prev{left: 5%;}
+.arrow.next{right: 5%;}
+
+.leftContainer{
+	background-color: #3385ff;
+	width: 50%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	display: block;
+}
+
+.rightContainer{
+	position: fixed;
+	background-image: url("../img/catWallpaper.png");
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	width: 50%;
+	height: 100%;
+	right: 0;
+	display: block;
+}
+
+.topNav{
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 3;
+	position: fixed;
+	top: -100%;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.verticalNav{text-align: center;}
+.verticalNav li{
+	font-size: 40px;
+	font-weight: bold;
+	padding: 10px 0;
+}
+
+.verticalNav li a, .productDescription li a{
+	display: inline-block;
+}
+
+.verticalNav li a::after, .productDescription li a::after{
+	content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: currentColor;
+    transition: width .3s;
+}
+
+.verticalNav li a:hover::after, .productDescription li a:hover::after{width: 100%;}
+
+.social{
+	position: absolute;
+	bottom: 5%;
+	display: block;
+}
+
+.titles{
+	width: 100%;
+	text-align: center;
+	font-size: 13.5px;
+	cursor: pointer;
+	padding-top: 10px;
+}
+
+.social img{
+	width: 22px;
+	padding: 0 15px;
+	-webkit-transition: margin-bottom .5s; /* For Safari 3.1 to 6.0 */
+	transition: margin-bottom .5s;
+}
+.social img:hover{margin-bottom: 10px;}
+
+.mainContainer{
+	min-width: 100%;
+	background-color: white;
+	position: relative;
+	z-index: 2;
+	overflow: auto;
+}
+
+.content{
+	position: relative;
+	margin: 10vw 10vw 0 10vw;
+}
+
+.content.topSpacer{
+	margin: 20vh 10vw 0 10vw;
+}
+
+.content .section{
+	display: flex;
+	margin-bottom: 10vw;
+}
+
+.sectionTitle{
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.sectionTitle span{
+	font-family: 'mainFont';
+	font-size: 3vw;
+	font-weight: bold;
+	letter-spacing: 2px;
+	/*color: rgb(255, 192, 203);*/
+}
+
+.products{
+	display: inline-block;
+	text-align: center;
+	overflow: auto;
+}
+
+.productDescription{
+	width: 100%;
+	display: inline-block;	
+}
+.productDescription.left{
+	padding-right: 4vw;	
+	border-right: 1px solid black;
+	text-align: right;
+	position: relative
+}
+.productDescription.right{
+	padding-left: 4vw;	
+	border-left: 1px solid black;
+}
+
+.productDescription span{
+	font-size: 4vw;
+	font-weight: bold;
+}
+
+.productDescription .button{
+	padding: 1vw 0;
+	margin: 0;
+}
+
+.productDescription ul{margin: 2vw 0;}
+.productDescription li{
+	color: #808080;
+	font-size: 3vw;
+	padding: 5px 0;
+	letter-spacing: 4px;
+}
+
+.productBox{
+	margin: 5px;
+	display: inline-block;
+	position: relative;
+	vertical-align: top;
+}
+
+
+.productBox .productImage{
+	width: 14vw;
+	height: 14vw;
+	transition: .5s;
+}
+
+.productBox .dsc{
+	width: 14vw;
+	font-size: .65vw;
+}
+
+
+.productBox .price{
+	background: pink;
+	position: absolute;
+	top: 20%;
+	font-size: .9vw;
+	padding: .5vw;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.scrollToTop{
+	background-color: rgba(255, 102, 102, .7);
+	width: 44px;
+	height: 44px;
+	position: fixed;
+	bottom: 0%;
+	right: 44px;
+	z-index: 2;
+	cursor: pointer;
+	display: none;
+	text-align: center;
+}
+.scrollToTop:hover{background-color: rgba(255, 102, 102);}
+
+.scrollToTop span{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	letter-spacing: 1px;
+}
+
+.header{
+	position: fixed;
+	z-index: 4;
+	width: 100%;
+	top: 5vh;
+	transition: .2s;
+}
+
+.header .centered{
+	display: flex;
+	align-items: center;
+}
+
+.header .title{
+	position: relative;
+	left: 10vw;
+	display: block;
+}
+
+.header.scrollTop{
+	border-bottom: 1px solid black;
+	top: 0;
+	background: white;
+}
+
+.header .title span{
+	font-family: 'mainFont';
+	font-size: 60px;
+	font-weight: bold;
+	letter-spacing: 4px;
+}
+.header.scrollTop .title span{font-size: 40px;}
+
+.hamburger{
+	position: absolute;
+	right: 10vw;
+}
+
+.hamburger ul{
+	display: flex;	
+	align-items: center;
+}
+
+.hamburger li, .navMenu li, .footer li{
+	display: inline-block;
+}
+
+.hamburger a{display: block;}
+
+.hamburger li{margin-right: 2vw;}
+.hamburger li:last-child{margin: 0;}
+
+.openNav{
+	width: 32px;
+	height: 32px;
+	border: 1px solid black;
+	background-image: url("../img/arrowBlack.png");
+	background-size: 100% 100%;
+	cursor: pointer
+}
+
+.navMenu{
+	width: 100%;
+	height: 0;
+	display: block;
+	/*transition: .5s;*/
+	text-align: center;
+	display: none;
+	background: white;
+	overflow: hidden;
+}
+
+.navMenu ul{
+	padding: 20px 0;
+}
+
+.navMenu li{
+	padding: 0 1vw;
+	color: #808080;
+	font-size: .9vw;
+}
+
+.navMenu li:last-child{
+	width: 100%;
+	display: none;
+	padding: 0;
+	color: white;
+	padding-top: 10px;
+}
+
+.navMenu li:last-child a{
+	background: #333333;
+	padding: 6px;
+}
+
+.colorLayer{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: black;
+	opacity: .5;
+	display: none;
+	transition: .5s;
+}
+
+span.line{
+	background: black;
+	width: 50px;
+	height: 3px;
+	display: block;
+	margin-top: 4px;
+}
+span.line.first{margin: 0;}
+
+span.cross{
+	position: absolute;
+	width: 18px;
+	height: 18px;	
+	display: block;
+	right: 52px;
+	cursor: pointer;
+}
+
+span.cross:before, span.cross:after {
+	position: absolute;
+	content: ' ';
+	height: 20px;
+	width: 2.5px;
+	background-color: white;
+	left: 25px;
+	top: -1px;
+}
+span.cross:before {transform: rotate(45deg);}
+span.cross:after {transform: rotate(-45deg);}
+
+.footer{
+	width: 100%;
+	text-align: left;
+	overflow: hidden;
+	border-top: 1px solid black;
+}
+
+.footer ul{padding: 20px 0;}
+.footer li{padding: 0 10px;}
+
+.footer li:last-child{
+	float: right;
+	border-left: 1px solid black;
+}
+
+.cart{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .75);
+	z-index: 6;
+	top: 0;
+	display: none;
+}
+
+@media (max-width: 1150px) 
+{		
+	.leftContainer{
+		width: 100%;
+		height: 50%;
+		top: 0;
+	}
+	.rightContainer{
+		top: 50%;
+		width: 100%;
+		height: 50%;
+		background-position: bottom;
+	}
+	.arrow{width: 8vw;}
+	.footer li:last-child{float: none;}
+	
+	.productBox .dsc{font-size: 1.5vw;}
+	
+	.hamburger li:first-child{display: none;}	
+	.navMenu li:last-child{display: block;}
+	
+	.sectionTitle span{font-size: 5vw;}
+	
+	.navMenu li{font-size: 1.65vw;}
+	
+	.productBox .price{font-size: 1.5vw;}
+}
+
+@media (max-width: 450px)
+{	
+    .header .title span, .header.scrollTop .title span {
+        font-size: 10vw;
+		letter-spacing: 0;
+    }
+	
+	.topNav li{
+		font-size: 8vw;
+		padding: 1vw 0;
+	}
+	
+	.rightContainer{background-position: top;}	
+	.slide span{font-size: 11vw;}
+	
+	.slide .button a{
+		font-size: 4vw;
+		padding: 2vw;
+	}
+	.productDescription .button a, .productDescription li{font-size: 3.5vw;}
+	.productDescription span{font-size: 6vw;}
+	
+	.arrow{width: 12vw;}
+	.scrollToTop{right: 24px;}
+	
+	.footer li, .navMenu li{display: block;}
+	.footer li:last-child{border: none;}
+	
+	.productBox .dsc{font-size: 2.2vw;}
+	
+	.sectionTitle span{font-size: 7vw;}
+	
+	.navMenu li{font-size: 2.7vh;}
+	
+	.productBox .price{display: none;}
+}
+
+
+
+
+
+
