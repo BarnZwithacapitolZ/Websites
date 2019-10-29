@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="book">
+        <div class="book__line">
+            <div class="book__text">
+                <h1 class="book__title">My Lists</h1>
+            </div>
+        </div>
+
+        {% if taskLists %}
+            {% for list in taskLists %}
+                <div class="book__line">
+                    <span class="book__spine"></span>
+
+                    <div class="book__text">
+                        <a href="{{ url_for('viewTaskLists', listId = list.id) }}" class="book__link book__link--{{list.color}} book__link--hover">
+                            <div class="book__block">
+                                <img src="{{ url_for('static', filename='img/') }}{{ list.icon }}.png " />
+                            </div>
+
+                            <div class="book__block">
+                                <div class="book__info">
+                                    <span class="book__link-text">{{ list.name }}</span>
+                                    <span class="book_link-text book__link-text--count">
+                                        {{ list.tasks|length - list.tasks|selectattr('complete')|list|length }} Tasks
+                                        {{ list.tasks|selectattr('complete')|list|length }} Complete
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="book__block book__block--right">
+                                <img src="{{ url_for('static', filename='img/arrow.png') }}" />
+                            </div>
+                        </a>
+                                
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% for n in range(4 - (taskLists|length))  %}
+                <div class="book__line">
+                    <span class="book__spine"></span>
+
+                    <div class="book__text book__text--empty">
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="book__line">
+                <span class="book__spine"></span>
+
+                <div class="book__text">
+                    <a href="{{ url_for('createList') }}" class="book__link book__link--green book__link--hover">
+                        <div class="book__block">
+                            <img src="{{ url_for('static', filename='img/important.png') }} " />
+                        </div>
+
+                        <div class="book__block">
+                            <div class="book__info">
+                                <span class="book__link-text">No lists yet, create one!</span>
+                            </div>
+                        </div>
+
+                        <div class="book__block book__block--right">
+                            <img src="{{ url_for('static', filename='img/arrow.png') }}" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            {% for n in range(3)  %}
+                <div class="book__line">
+                    <span class="book__spine"></span>
+
+                    <div class="book__text book__text--empty">
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        
+        <a href="{{ url_for('createList') }}" class="book__add">
+            <span>+</span>
+        </a>
+   
+    </div>
+ 
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="controls">
+        <div class="controls__tool">
+            <a href="{{ url_for('viewLists') }}"><img src="{{ url_for('static', filename='img/return-black.png') }}" /></a>      
+        </div>
+    </div>
+
+
+    <div class="book book--under">
+        <div class="book__line book__line--under">
+            <div class="book__text">
+                <h1 class="book__title">Create List</h1>
+            </div>
+        </div>
+
+
+        <form action="" method="POST" name="createTask" autocomplete="off">
+            {{ form.csrf_token() }}
+    
+            <div class="book__line">
+                <span class="book__spine"></span>
+
+                <div class="book__text">
+                    <div class="book__link book__link--white">
+                        <div class="book__block book__block--fill">
+                            <div class="book__info book__info--fill">
+                                <span class="book__link-text">{{ form.name(class = "book__name") }}</span>
+
+                                {% if form.name.errors %}
+                                    {% for error in form.name.errors %}
+                                        <span class="book__link-text book__link-text--count book__link-text--error">{{ error }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="book__line">
+                <span class="book__spine"></span>
+
+                <div class="book__text">
+                    <div class="book__link book__link--white">
+                        <div class="book__block">
+                            <div class="book__info">
+                                <span class="book__link-text">{{ form.color.label }}</span>
+                                {{ form.color(value='red', class='color') }}  
+
+                                <span class="book__link-text book__link-text--count">
+                                    {% for color in form.colors %}
+                                        <div class="book__color book__color--{{ color }}" data="{{ color }}"></div>
+                                    {% endfor %}
+                                </span>
+
+                                {% if form.color.errors %}
+                                    {% for error in form.color.errors %}
+                                        <span class="book__link-text book__link-text--count book__link-text--error">{{ error }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="book__line">
+                <span class="book__spine"></span>
+
+                <div class="book__text">
+                    <div class="book__link book__link--white">
+                        <div class="book__block">
+                            <div class="book__info">
+                                <span class="book__link-text">{{ form.icon.label }}</span>
+                                {{ form.icon(value='star', class='icon') }} 
+
+                                <span class="book__link-text book__link-text--count">
+                                    {% for icon in form.icons %}
+                                        <img class="book__icon book__icon--{{ icon }}" src="{{ url_for('static', filename='img/') }}{{ icon }}.png " data="{{ icon }}" />
+                                    {% endfor %}
+                                </span>
+
+                                {% if form.icon.errors %}
+                                    {% for error in form.icon.errors %}
+                                        <span class="book__link-text book__link-text--count book__link-text--error">{{ error }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="book__line">
+                <span class="book__spine"></span>
+                
+                <div class="book__text">
+                    {{ form.submit(class="book__link book__link--green book__link--submit") }}
+                </div>  
+            </div>
+        </form>
+
+    </div>
+
+{% endblock %}
